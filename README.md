@@ -1,7 +1,4 @@
-German-wide Biodiversity Metrics
-
-# General Infomation
-
+# German-wide Biodiversity Metrics
 ## Introduction
 
 Biodiversity metrics allow to derive information about the biodiversity
@@ -14,3 +11,10 @@ representation is on a nationwide 1 km² hexagon grid for the years
 2017-2019 (availability of Preidl data).
 
 ## Data
+
+Technical Details
+
+-   Projection: ETRS89 / UTM zone 32N
+-   EPSG: 25832
+-   Extend: Germany (with a 1 *k**m*<sup>2</sup>-Buffer)
+-   Number of hexagons: 354252
