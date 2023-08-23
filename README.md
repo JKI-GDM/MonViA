@@ -1,4 +1,7 @@
 # German-wide Biodiversity Metrics
+
+[[_TOC_]]
+
 ## Introduction
 
 Biodiversity metrics allow to derive information about the biodiversity
