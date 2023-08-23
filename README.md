@@ -1,6 +1,5 @@
 # German-wide Biodiversity Metrics
-
-[[_TOC_]]
+[TOC]
 
 ## Introduction
 
