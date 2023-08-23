@@ -98,8 +98,7 @@ raw_w_mean_data <- w_mean_data %>%
 
 ```
 
-
-# centroid mean
+## centroid mean
 For the centroid mean the centroid of all polygons got calculated and intersected to the hexagon layer. 
 
 ```{r, centroid_data, warning = FALSE, message = FALSE, results='hide', echo = FALSE}
@@ -107,7 +106,6 @@ centroid_file <- paste0(wd, fd_year, "_PRE_Seg" , mask, "_centroids.shp")
 ```
 
 ```{r, mean_centroid, results='hide', message = FALSE}
-
 shp_centroids <- st_read(centroid_file)
 
 raw_polygon_details <- data_frame(HexagonID = shp_centroids$HexagonID, 
