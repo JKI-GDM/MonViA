@@ -235,7 +235,6 @@ Access, 9, 116702–116719. https://doi.org/10.1109/ACCESS.2021.3105903
 Tetteh, G. O., Schwieder, M., Erasmi, S., & Gocht, A. (2023). Delineated agricultural fields from sentinel-
 1 and sentinel-2 feature sets: Not published.
 
-\newpage 
 # Packages
 
 ```{r, packages_info, warning = FALSE, message = FALSE, results='asis', echo = FALSE}
