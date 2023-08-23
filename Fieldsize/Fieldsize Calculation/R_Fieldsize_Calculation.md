@@ -27,22 +27,6 @@ source("~/MonViA_Indikatoren/JU_MonViA/Skripte/Vektor/Functions_Indikatoren.R")
 # Input
 All used Packages and functions are presented at the end of document. 
 Load data which is already intersected with the hexagon layer. Polygon areas should have calculated before intersection.
-```{r, data, warning = FALSE, message = FALSE, results='hide', echo = FALSE}
-wd <- "~/Daten/Biodiversitätsmetriken/"
-CTC <- "_PRE"
-fd <- "D"
-year <- "2019"
-fd_year <- paste0(fd,"_", year)
-short = "PRE" 
-
-mask <- "_crop" # possible: Agrarmask and Cropmask [_Crop_, _Agrar]
-savename <- paste0(fd_year, CTC, mask)
-
-# input file
-shp_data_file  <- paste0(wd, fd_year, "_PRE_Seg_crop.shp")
-
-hexagonfile <- paste0("~/Daten/Hexagon_DE_UTM32/", fd, "/", fd, "_Hexagone_filtered.shp")
-```
 
 ## Data
 
@@ -83,8 +67,7 @@ mean_data <- get_meanarea_per_hexagon(hexagon_data, raw_polygon_details)
 raw_mean_data <- mean_data %>% 
   dplyr::select(HexagonID, meanarea)
 
-# st_write(raw_mean_data,
-  # paste0(wd, "Feldgröße/", savename, "_mean_total.shp"), delete_dsn = TRUE)
+# st_write(raw_mean_data, paste0(wd, "Feldgröße/", savename, "_mean_total.shp"), delete_dsn = TRUE)
 
 ```
 
@@ -100,8 +83,7 @@ mean_cut_data <- get_meanarea_per_hexagon(hexagon_data, mean_cut_polygon_details
 raw_mean_cut_data <- mean_cut_data %>% 
   dplyr::select(HexagonID, mean_cut = meanarea)
 
-# st_write(raw_mean_cut_data,
-  # paste0(wd, "Feldgröße/", savename, "_mean_CUT.shp"), delete_dsn = TRUE)
+# st_write(raw_mean_cut_data, paste0(wd, "Feldgröße/", savename, "_mean_CUT.shp"), delete_dsn = TRUE)
 ```
 
 ## area weighted mean (weight total polygon area by area per hexagon, w_mean)
@@ -112,12 +94,11 @@ w_mean_data <- get_weightedmean_per_hexagon(hexagon_data, raw_polygon_details)
 raw_w_mean_data <- w_mean_data %>% 
   dplyr::select(HexagonID, w_mean)
 
-# st_write(raw_wmean_data,
-  # paste0(wd, "Feldgröße/", savename, "_wmean.shp"), delete_dsn = TRUE)
+# st_write(raw_wmean_data, paste0(wd, "Feldgröße/", savename, "_wmean.shp"), delete_dsn = TRUE)
 
 ```
 
-\newpage
+
 # centroid mean
 For the centroid mean the centroid of all polygons got calculated and intersected to the hexagon layer. 
 
@@ -138,18 +119,10 @@ c_mean_data <- get_meanarea_per_hexagon(hexagon_data, raw_polygon_details)
 raw_c_mean_data <- c_mean_data %>% 
   dplyr::select(HexagonID, meanarea)
 
-# st_write(raw_c_mean_data,
-  # paste0(wd, "Feldgröße/", savename, "_centroid.shp"), delete_dsn = TRUE)
+# st_write(raw_c_mean_data, paste0(wd, "Feldgröße/", savename, "_centroid.shp"), delete_dsn = TRUE)
 ```
 
 # Summary to one dataset
-```{r, mean_summary_input, results='hide', echo=FALSE}
-# load datasets
-# mean_data <- st_read(paste0(wd, "Feldgröße/", savename, "_mean_total.shp"))
-# mean_cut_data <- st_read(paste0(wd, "Feldgröße/", savename, "_mean_total.shp"))
-# wmean_data <- st_read(paste0(wd, "Feldgröße/", savename, "_wmean.shp"))
-# c_mean_data <- st_read(paste0(wd, "Feldgröße/", savename, "_centroid.shp"))
-```
 
 ```{r, mean_summary_data, results='hide', message = FALSE,}
 # definde dataframes (only one dataset are allowed to include geometries)
@@ -176,8 +149,6 @@ fieldsizes <- data_mean_3
 ```{r, field_size_details, warning = FALSE, message = FALSE, results='asis', echo = FALSE}
 knitr::kable(fieldsizes[1:3, ], caption = "Details of dataset field size")
 ```
-
-\newpage
 
 # Functions
 
@@ -229,7 +200,6 @@ get_meanarea_per_hexagon <- function(hexagon_data, raw_polygon_details){
 
 ```
 
-\newpage
 ## get weighted mean per hexagon
 
 ```{r, get_w-mean, warning = FALSE, message = FALSE, results='hide'}
