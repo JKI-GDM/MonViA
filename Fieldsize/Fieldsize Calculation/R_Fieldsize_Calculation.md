@@ -53,7 +53,6 @@ polygon_details <- data_frame(HexagonID = polygon_cutarea$HexagonID,
 raw_polygon_details <- drop_units(polygon_details)
 ```
 
-\newpage
 # Field Size
 
 There a different ways to calculate the fieldsize. There is the "normal" mean where is to decide, whether the whole polygon geometry (mean with polygon total area) should be included or only the polygon part which are included into the specific hexagon (mean with polygon cut, mean_cut). Furthermore the mean of the whole polygon area can be calculated but only in hexagon where the centroid of the polygone is located (centroid mean, c_mean). Also an area weighted mean (w_mean) can be calculated where the total polygon area is used in the calculation but its weight by its cutted area in the specific hexagon. Each method have advantages and disadvantages which are described in more details in the documentation. 
