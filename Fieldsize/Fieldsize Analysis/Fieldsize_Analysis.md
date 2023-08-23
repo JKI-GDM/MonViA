@@ -28,25 +28,6 @@ source("~/MonViA_Indikatoren/JU_MonViA/Skripte/Vektor/Functions_Indikatoren.R")
 # Input
 All used Packages are presented at the end of document. 
 Load field size dataset and hexagon dataset.
-```{r, data_definitions, warning = FALSE, message = FALSE, results='hide', echo = FALSE}
-wd <- "~/Daten/Biodiversitätsmetriken/"
-CTC <- "_PRE"
-fd <- "D"
-year <- "2019"
-fd_year <- paste0(fd,"_", year)
-short = "PRE" 
-
-mask <- "_crop" # possible: Agrarmask and Cropmask [_Crop_, _Agrar]
-savename <- paste0(fd_year, CTC, mask)
-
-## input files
-# shp_data <- st_read(paste0(wd, fd_year, "_PRE_Seg_crop.shp"))
-hexagonfile <- paste0("~/Daten/Hexagon_DE_UTM32/", fd, "/", fd, "_Hexagone_filtered.shp")
-
-
-fieldsizes_file <- paste0(wd, "Feldgröße/", savename, "_fieldsizes.shp")
-
-```
 
 ## Data
 
@@ -63,7 +44,6 @@ The data set *fieldsize* contains 6 columns and contain 354252 hexagons. The fir
 knitr::kable(fieldsizes[1:3, ], caption = "Details of dataset field size")
 
 ```
-\newpage
 ## Data Statistics 
 Calculation of mean, standard deviation, maximum and minimum for every column (mean, mean_cut, w_mean, c_mean). In addition the coordinate reference system (crs) is given. 
 
@@ -106,7 +86,6 @@ statistic_results <- data_frame(name = statistic_results$name,
 ```{r, statistic_details, warning = FALSE, message = FALSE, results='asis', echo = FALSE}
 knitr::kable(statistic_results, caption = "Statistics of fieldsize dataset")
 ```
-\newpage
 
 ## Pearson Korrelation (r) of all Fieldsizes
 ```{r, korr, warning = FALSE, message = FALSE, results='hide'}
@@ -158,12 +137,8 @@ gg_D
 # name = "_subset_D"
 # ggsave(gg_D, filename = paste0(wd, "Feldgröße/", savename, name ,"_corr_scaled.png"), dpi=300, width = 6, height = 5)
 ```
-\newpage
-
 # Packages
 
 ```{r, end, warning = FALSE, message = FALSE, results='asis', echo = FALSE}
-# print(sessionInfo())
 sessionInfo()
-# installed.packages()[names(sessionInfo()$otherPkgs), "Version"]
 ```
