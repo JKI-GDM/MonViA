@@ -221,7 +221,7 @@ get_weightedmean_per_hexagon <- function(hexagon_data, data) {
   return (weightedmean_data)
 }
 ```
-# Liturature 
+# Literature 
 
 Preidl, S., Lange, M., & Doktor, D. (2020). Introducing apic for regionalised land cover mapping on the national scale using sentinel-2a imagery. Remote Sensing of Environment, 240, 111673. https://doi.org/10.1016/j.rse.2020.111673 
 
